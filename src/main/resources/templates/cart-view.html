@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coșul de Cumpărături</title>
+  <link rel="stylesheet" href="/css/style4.css">
+</head>
+<body>
+<h1>Coșul de Cumpărături</h1>
+
+<ul>
+  <li th:each="item : ${articoleCos}">
+    <span th:text="'Cartea: ' + ${item.titlu}"></span> -
+    <span th:text="'Autor: ' + ${item.autor}"></span> -
+    <span th:text="'Preț: ' + ${item.pret} + ' RON'"></span> -
+    <span th:text="'Cantitate: ' + ${item.cantitate}"></span>
+
+    <!-- Formular pentru a actualiza cantitatea -->
+    <form action="/cart/update" method="post" style="display:inline;">
+      <input type="hidden" name="idCarte" th:value="${item.idCarte}"/>
+      <input type="number" name="cantitate" th:value="${item.cantitate}" min="1"/>
+      <button type="submit">Actualizează</button>
+    </form>
+
+    <!-- Formular pentru a șterge cartea din coș -->
+    <form action="/cart/remove" method="post" style="display:inline;">
+      <input type="hidden" name="idCarte" th:value="${item.idCarte}"/>
+      <button type="submit">Șterge</button>
+    </form>
+  </li>
+</ul>
+
+<!-- Secțiune pentru afișarea totalului -->
+<h2>Total: <span th:text="${totalCos} + ' RON'"></span></h2>
+
+<!-- Buton pentru a goli coșul -->
+<form action="/cart/clear" method="post">
+  <button type="submit">Golește Coșul</button>
+</form>
+
+<!-- Buton pentru a merge înapoi la pagina principală -->
+<div class="back-to-home-button-container">
+  <a href="/" class="back-to-home-button">Înapoi la Pagina Principală</a>
+</div>
+
+</body>
+</html>

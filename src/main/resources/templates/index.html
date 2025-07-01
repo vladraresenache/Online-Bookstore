@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookMania</title>
+  <link rel="stylesheet" href="/css/style1.css">
+</head>
+<body>
+<h1><a href="/" style="text-decoration: none; color: inherit;">Bine ati venit pe BookMania</a></h1>
+
+
+<div class="button-container">
+  <div class="login-button-container">
+    <a href="/login" class="login-button">Login</a>
+  </div>
+  <div class="view-cart-button-container">
+    <a href="/cart" class="view-cart-button">
+      Vezi coșul
+      <span th:text="${numarArticoleCos > 0 ? '(' + numarArticoleCos + ')' : ''}"></span>
+    </a>
+  </div>
+</div>
+
+<h2>Caută Carte</h2>
+<form th:action="@{/search}" method="get" class="search-bar">
+  <input type="text" name="query" placeholder="Caută după titlu sau autor" required class="search-input">
+  <button type="submit" class="search-button">Caută</button>
+</form>
+
+<p class="our-books">Cărțile noastre:</p>
+<div class="book-list">
+  <ul>
+    <li th:each="carte : ${carti}">
+      <strong th:text="${carte.titlu}"></strong> - <span th:text="${carte.autor}"></span>
+      <p th:text="'Preț: ' + ${carte.pret} + ' RON'"></p>
+      <form action="/cart/add" method="post" th:object="${carte}">
+        <input type="hidden" name="idCarte" th:value="${carte.id}"/>
+        <button type="submit">Adaugă în coș</button>
+      </form>
+    </li>
+  </ul>
+</div>
+
+</body>
+</html>

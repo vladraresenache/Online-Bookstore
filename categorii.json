@@ -1,0 +1,22 @@
+[
+  {"id": 1, "nume": "Fictiune"},
+  {"id": 2, "nume": "Non-ficțiune"},
+  {"id": 3, "nume": "Literatură clasică"},
+  {"id": 4, "nume": "Poezie"},
+  {"id": 5, "nume": "Teatru"},
+  {"id": 6, "nume": "Science Fiction"},
+  {"id": 7, "nume": "Fantasy"},
+  {"id": 8, "nume": "Thriller"},
+  {"id": 9, "nume": "Mister"},
+  {"id": 10, "nume": "Romance"},
+  {"id": 11, "nume": "Biografie"},
+  {"id": 12, "nume": "Memorii"},
+  {"id": 13, "nume": "Istorie"},
+  {"id": 14, "nume": "Sociologie"},
+  {"id": 15, "nume": "Psihologie"},
+  {"id": 16, "nume": "Culinare"},
+  {"id": 17, "nume": "Urmăritori"},
+  {"id": 18, "nume": "Cărți pentru copii"},
+  {"id": 19, "nume": "Cărți pentru adolescenți"},
+  {"id": 20, "nume": "Cărți de dezvoltare personală"}
+]

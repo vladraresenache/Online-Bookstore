@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ro" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panou de Administrare</title>
+    <link rel="stylesheet" href="/css/style2.css">
+    <script>
+        function confirmareStergere() {
+            return confirm("Ești sigur că vrei să ștergi această carte?");
+        }
+    </script>
+</head>
+<body>
+<h1><a href="/admin/dashboard" style="text-decoration: none; color: inherit;">Panou de Administrare</a></h1>
+
+
+<h2>Adaugă Carte Nouă</h2>
+<form th:action="@{/admin/adauga}" method="post">
+    <input type="text" name="titlu" placeholder="Titlul Cărții" required>
+    <input type="text" name="autor" placeholder="Autor" required>
+    <input type="number" name="pret" placeholder="Preț" step="0.01" required>
+    <textarea name="descriere" placeholder="Descrierea Cărții" required></textarea>
+    <input type="number" name="stoc" placeholder="Stoc" required>
+
+    <select name="categorieId">
+        <option value="" disabled selected>Selectează Categoria</option>
+        <th:block th:each="categorie : ${categorii}">
+            <option th:value="${categorie.id}" th:text="${categorie.nume}"></option>
+        </th:block>
+    </select>
+
+    <button type="submit">Adaugă Carte</button>
+</form>
+
+<h2>Caută Carte</h2>
+<form th:action="@{/admin/search}" method="get">
+    <input type="text" name="query" placeholder="Caută după titlu sau autor" required>
+    <button type="submit">Caută</button>
+</form>
+
+<h2>Lista Cărților</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Titlu</th>
+        <th>Autor</th>
+        <th>Preț</th>
+        <th>Descriere</th>
+        <th>Stoc</th>
+        <th>Categoria</th>
+        <th>Acțiuni</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="carte : ${carti}">
+        <tr>
+            <td th:text="${carte.id}"></td>
+            <td th:text="${carte.titlu}"></td>
+            <td th:text="${carte.autor}"></td>
+            <td th:text="${carte.pret}"></td>
+            <td th:text="${carte.descriere}"></td>
+            <td th:text="${carte.stoc}"></td>
+            <td th:text="${carte.categorie != null ? carte.categorie.nume : 'N/A'}"></td>
+            <td>
+                <a th:href="@{/admin/sterge/{id}(id=${carte.id})}" onclick="return confirmareStergere();">Șterge</a>
+            </td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+
+<h2>Editează Carte</h2>
+<form th:action="@{/admin/update}" method="post">
+    <input type="number" name="id" placeholder="ID Carte" required>
+    <input type="text" name="titlu" placeholder="Titlu Nou">
+    <input type="text" name="autor" placeholder="Autor Nou">
+    <input type="number" name="pret" placeholder="Preț Nou" step="0.01">
+    <textarea name="descriere" placeholder="Descriere Nouă"></textarea>
+    <input type="number" name="stoc" placeholder="Stoc Nou">
+
+    <select name="categorieId">
+        <option value="" disabled selected>Selectează Categoria</option>
+        <th:block th:each="categorie : ${categorii}">
+            <option th:value="${categorie.id}" th:text="${categorie.nume}"></option>
+        </th:block>
+    </select>
+
+    <button type="submit">Actualizează Carte</button>
+</form>
+
+<h2>Notificări Stoc Critic</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Titlu</th>
+        <th>Autor</th>
+        <th>Stoc</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="carte : ${cartiCritice}">
+        <tr>
+            <td th:text="${carte.titlu}"></td>
+            <td th:text="${carte.autor}"></td>
+            <td th:text="${carte.stoc}"></td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+
+<h2>Adaugă Categorie</h2>
+<form th:action="@{/admin/adauga-categorie}" method="post">
+    <input type="text" name="nume" placeholder="Numele Categorie" required>
+    <button type="submit">Adaugă Categorie</button>
+</form>
+
+<h2>Lista Categoriilor</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nume</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="categorie : ${categorii}">
+        <tr>
+            <td th:text="${categorie.id}"></td>
+            <td th:text="${categorie.nume}"></td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+
+<h2>Iese din Modul Administrativ</h2>
+<form th:action="@{/admin/logout}" method="post" onsubmit="return confirm('Ești sigur că vrei să te deconectezi?');">
+    <button type="submit">Deconectare</button>
+</form>
+
+</body>
+</html>

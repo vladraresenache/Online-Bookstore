@@ -1,0 +1,159 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif; /* Set a clean, readable font */
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Light background color */
+    color: #333; /* Dark text color */
+}
+
+h1 {
+    text-align: center; /* Center the heading */
+    margin-top: 20px; /* Space above the heading */
+    color: #007bff; /* Blue color for the heading */
+}
+h2 {
+    text-align: center; /* Center the heading */
+    margin-top: 20px; /* Space above the heading */
+    color: darkslategray; /* Blue color for the heading */
+}
+
+/* Login Button Styles */
+.login-button-container {
+    text-align: center; /* Center the login button */
+    margin-top: 20px; /* Space above the button */
+}
+
+.login-button {
+    display: inline-block; /* Make the link behave like a button */
+    padding: 10px 20px; /* Add padding for a button-like appearance */
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* Text color for the button */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline from the link */
+    font-weight: bold; /* Make the text bold */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.login-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Book List Styles */
+.book-list {
+    max-width: 600px; /* Limit the width of the book list */
+    margin: 20px auto; /* Center the book list */
+    padding: 10px; /* Add padding */
+    background-color: #fff; /* White background for the list */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.book-list ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.book-list li {
+    padding: 10px; /* Add padding to each book item */
+    border-bottom: 1px solid #ddd; /* Add a bottom border for separation */
+}
+
+.book-list li:last-child {
+    border-bottom: none; /* Remove border from the last item */
+}
+
+strong {
+    color: #007bff; /* Blue color for book titles */
+}
+.view-cart-button-container {
+    margin-top: 20px; /* Spațiu deasupra butonului */
+}
+
+.button-container {
+    display: flex; /* Folosește flexbox pentru aliniere */
+    justify-content: center; /* Împinge butoanele la margini opuse */
+    align-items: center; /* Center the items vertically */
+    position: relative; /* Poziționare relativă pentru a putea folosi absolute pe View Cart */
+    margin-top: 20px; /* Spațiu deasupra containerului de butoane */
+}
+
+
+.view-cart-button {
+    position: absolute; /* Poziționează butonul View Cart absolut */
+    right: 20px;
+    border-left: 20px; /* Spațiu față de marginea din dreapta */
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Culoarea de fundal a butonului */
+    color: white; /* Culoarea textului */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px; /* Colțuri rotunjite */
+}
+
+.view-cart-button:hover {
+    background-color: #45a049; /* Culoare mai închisă la hover */
+}
+.add-to-cart-button {
+    padding: 5px 10px;
+    background-color: #008CBA; /* Culoarea de fundal a butonului */
+    color: white; /* Culoarea textului */
+    border: none; /* Fără bordură */
+    border-radius: 4px; /* Colțuri rotunjite */
+    cursor: pointer; /* Cursor de pointer */
+    margin-left: 10px; /* Spațiu între titlul cărții și buton */
+}
+
+.add-to-cart-button:hover {
+    background-color: #005f73; /* Culoare mai închisă la hover */
+}
+/* Search Bar Styles */
+.search-bar {
+    max-width: 600px; /* Limitează lățimea search bar-ului */
+    margin: 20px auto; /* Centrează search bar-ul pe pagină */
+    display: flex; /* Folosește flexbox pentru alinierea elementelor */
+}
+
+.search-input {
+    flex: 1; /* Permite inputului să ocupe tot spațiul disponibil */
+    padding: 10px; /* Adaugă padding pentru un aspect mai confortabil */
+    border: 1px solid #ddd; /* Bordură gri deschis */
+    border-radius: 5px; /* Colțuri rotunjite */
+    font-size: 16px; /* Mărimea textului */
+    outline: none; /* Elimină conturul implicit la focus */
+    transition: border-color 0.3s; /* Transiție pentru bordură */
+}
+
+.search-input:focus {
+    border-color: #007bff; /* Schimbă culoarea bordurii la focus */
+}
+
+.search-button {
+    padding: 10px 20px; /* Adaugă padding pentru buton */
+    background-color: #007bff; /* Culoarea de fundal a butonului */
+    color: white; /* Culoarea textului */
+    border: none; /* Fără bordură */
+    border-radius: 5px; /* Colțuri rotunjite */
+    font-weight: bold; /* Text îngroșat */
+    cursor: pointer; /* Cursor de pointer */
+    margin-left: 10px; /* Spațiu între input și buton */
+    transition: background-color 0.3s; /* Transiție pentru culoarea de fundal */
+}
+
+.search-button:hover {
+    background-color: #0056b3; /* Culoare mai închisă la hover */
+}
+
+
+.our-books{
+    display: flex; /* Folosește flexbox pentru aliniere */
+    justify-content: center; /* Împinge butoanele la margini opuse */
+    align-items: center; /* Center the items vertically */
+    position: relative; /* Poziționare relativă pentru a putea folosi absolute pe View Cart */
+    margin-top: 30px;
+    color: white;
+    padding: 20px 10px;
+    background-color: cadetblue;
+}
