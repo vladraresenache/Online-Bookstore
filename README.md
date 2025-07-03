@@ -1,52 +1,63 @@
 # BookMania
 
-BookMania este o aplicație web pentru gestionarea și vizualizarea cărților, categoriilor și a coșului de cumpărături. Proiectul este realizat în Java folosind Spring Boot.
+BookMania is a web application for managing and viewing books, categories, and the shopping cart. The project is developed in Java using Spring Boot.
 
-## Structura proiectului
+## Project Structure
 
-- `src/main/java/com/example/BookMania/` - Codul sursă principal
-  - `controller/` - Controlerele aplicației (Admin, Auth, Carti)
-  - `model/` - Modele de date (Carte, Categorie, Utilizator, etc.)
-  - `repository/` - Clase pentru accesul la date (RepositoryCarte, etc.)
-  - `util/` - Utilitare (ex: UtilitateJson)
-- `src/main/resources/`
-  - `templates/` - Șabloane HTML pentru interfața web
-  - `static/css/` - Fișiere CSS pentru stilizare
-- `books.json`, `categorii.json` - Datele aplicației
+```
+src/main/java/com/example/BookMania/
+├── controller/       # Application controllers (Admin, Auth, Books)
+├── model/            # Data models (Book, Category, User, etc.)
+├── repository/       # Data access classes (BookRepository, etc.)
+└── util/             # Utilities (e.g., JsonUtility)
 
-## Instalare și rulare
+src/main/resources/
+├── templates/        # HTML templates for the web interface
+└── static/css/       # CSS files for styling
 
-1. **Cerințe:**
-   - Java 17+
-   - Maven
+books.json            # Book data
+categories.json       # Category data
+```
 
-2. **Clonare și build:**
-   ```bash
-   git clone <repo>
-   cd BookMania
-   mvn clean install
-   ```
+## Installation and Running
 
-3. **Rulare aplicație:**
-   ```bash
-   mvn spring-boot:run
-   ```
-   sau
-   ```bash
-   ./mvnw spring-boot:run
-   ```
+### Requirements
 
-4. **Accesare aplicație:**
-   Deschide browserul la: [http://localhost:8080](http://localhost:8080)
+- Java 17+
+- Maven
 
-## Funcționalități principale
-- Autentificare utilizator
-- Administrare cărți și categorii
-- Vizualizare și adăugare în coș
+### Clone and Build
 
-## Notă
-Acest proiect folosește fișiere JSON pentru stocarea datelor. Pentru date persistente, asigură-te că fișierele `books.json` și `categorii.json` există în directorul principal.
+```bash
+git clone <repo>
+cd BookMania
+mvn clean install
+```
+
+### Run the Application
+
+```bash
+mvn spring-boot:run
+```
+or
+```bash
+./mvnw spring-boot:run
+```
+
+### Access the Application
+
+Open your browser at: [http://localhost:8080](http://localhost:8080)
+
+## Main Features
+
+- User authentication
+- Book and category management
+- View and add to shopping cart
+
+## Note
+
+This project uses JSON files for data storage. To ensure data persistence, make sure that the `books.json` and `categories.json` files exist in the main directory.
 
 ---
 
-> Pentru detalii suplimentare sau întrebări, te rog să deschizi un issue sau să contactezi autorul. 
+> For further details or questions, please open an issue or contact the author.
